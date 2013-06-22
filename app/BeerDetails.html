@@ -16,17 +16,15 @@
         </div>
         <div ng-controller="BeerController">
             <div class="row">
-                    <div class="span1">
-                        <h2>{{beer.name}}</h2>
-                    </div>
-            </div>
-            <div class="row">
-                <div class="span3">
-                    <div><strong>Category:</strong> {{beer.category.name}}</div>
-                    <div><strong>Description:</strong> {{beer.description}}</div>
+                <div class="span12">
+                    <h2>{{beer.name}}</h2>
                 </div>
             </div>
             <div class="row">
+                <div class="span3">
+                    <div><strong>Category:</strong>{{beer.category.name}}</div>
+                    <div><strong>Description:</strong>{{beer.description}}</div>
+                </div>
                 <div class="span4">
                     <h3>Brewer Details</h3>
                     <strong>Address:</strong><br/>
