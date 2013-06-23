@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="./css/bootstrap.css" />
     <link rel="stylesheet" href="./css/app.css" />
 </head>
-<body>
+<body ng-cloak>
     <div class="container">
         <div class="navbar">
             <div class="navbar-inner">
@@ -44,30 +44,34 @@
                 </div>
             </div>
 
+            <div ng-bind-html-unsafe="snippet"></div>
             <hr/>
-            <h3>Beers</h3>
-            <ul class="thumbnails">
-                <li ng-repeat="beer in beers">
-                    <div class="row beer">
-                        <div class="span0 well votingWidget">
-                            <div class="votingButton" ng-click="upVoteBeer(beer)">
-                                <i class="icon-chevron-up"></i>
+            <button class="btn-primary" ng-click="toggleBeersList()">Toggle...</button>
+            <div ng-show="beers.isVisible">
+                <h3>Beers</h3>
+                <ul class="thumbnails">
+                    <li ng-repeat="beer in beers">
+                        <div class="row beer">
+                            <div class="span0 well votingWidget">
+                                <div class="votingButton" ng-click="upVoteBeer(beer)">
+                                    <i class="icon-chevron-up"></i>
+                                </div>
+                                <div class="badge">
+                                    <div>{{beer.upVoteCount}}</div>
+                                </div>
+                                <div class="votingButton" ng-click="downVoteBeer(beer)">
+                                    <i class="icon-chevron-down"></i>
+                                </div>
                             </div>
-                            <div class="badge">
-                                <div>{{beer.upVoteCount}}</div>
-                            </div>
-                            <div class="votingButton" ng-click="downVoteBeer(beer)">
-                                <i class="icon-chevron-down"></i>
+                            <div class="well span9" ng-click="displayBeer(beer)">
+                                <h4 class="well-title">{{beer.name}}</h4>
+                                <h6 style="margin-top:-10px">{{beer.category.name}}</h6>
+                                <span>Brewer: {{beer.brewer.name}}</span>
                             </div>
                         </div>
-                        <div class="well span9" ng-click="displayBeer(beer)">
-                            <h4 class="well-title">{{beer.name}}</h4>
-                            <h6 style="margin-top:-10px">{{beer.category.name}}</h6>
-                            <span>Brewer: {{beer.brewer.name}}</span>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
