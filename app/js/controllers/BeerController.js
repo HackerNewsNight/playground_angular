@@ -41,7 +41,8 @@ beerApp.controller('BeerController',
                        country: "Australia"
                    }
                },
-               description: "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days. Its malty sweetness ..."
+               description: "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days. Its malty sweetness ...",
+               upVoteCount: 0
            },
            {
                id: 3,
@@ -59,7 +60,8 @@ beerApp.controller('BeerController',
                        country: "Australia"
                    }
                },
-               description: "Is it dark in here. "
+               description: "Is it dark in here. ",
+               upVoteCount: 0
            },
            {
                id: 1,
@@ -77,8 +79,16 @@ beerApp.controller('BeerController',
                        country: "Australia"
                    }
                },
-               description: "Cloudy..."
+               description: "Cloudy...",
+               upVoteCount: 0
            }
-       ]
+       ];
+       $scope.upVoteBeer = function(beer) {
+            beer.upVoteCount++;
+       }
+       $scope.downVoteBeer = function(beer) {
+           beer.upVoteCount--;
+       }
+
    }
 );
