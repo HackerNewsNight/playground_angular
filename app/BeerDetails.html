@@ -24,6 +24,7 @@
                 <div class="span3">
                     <div><strong>Category:</strong>{{beer.category.name}}</div>
                     <div><strong>Description:</strong>{{beer.description}}</div>
+                    <div><strong>Alcohol Percentage:</strong>{{beer.alcoholPercentage | abv}}</div>
                 </div>
                 <div class="span4">
                     <address>
@@ -97,5 +98,7 @@
     <script src="./lib/bootstrap/bootstrap.min.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/controllers/BeerController.js"></script>
+    <script src="./js/filters.js"></script>
+
 </body>
 </html>

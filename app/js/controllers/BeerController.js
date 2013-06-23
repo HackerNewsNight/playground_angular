@@ -47,7 +47,8 @@ beerApp.controller('BeerController',
                },
                description: "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days. Its malty sweetness ...",
                upVoteCount: 0,
-               images: [ "./img/beers/sol.jpg" ]
+               images: [ "./img/beers/sol.jpg" ],
+               alcoholPercentage: 8.05
            },
            {
                id: 3,
@@ -67,7 +68,8 @@ beerApp.controller('BeerController',
                },
                description: "Is it dark in here. ",
                upVoteCount: 0,
-               images: [ "./img/beers/fat_yak.jpg" ]
+               images: [ "./img/beers/fat_yak.jpg" ],
+               alcoholPercentage: 15.05
            },
            {
                id: 1,
@@ -87,7 +89,8 @@ beerApp.controller('BeerController',
                },
                description: "Cloudy...",
                upVoteCount: 0,
-               images: [ "./img/beers/coopers.jpg" ]
+               images: [ "./img/beers/coopers.jpg" ],
+               alcoholPercentage: 3.05
            }
        ];
        $scope.beers.isVisible = true;
