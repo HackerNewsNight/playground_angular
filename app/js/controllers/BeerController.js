@@ -33,7 +33,7 @@ beerApp.controller('BeerController',
                id: 2,
                name: "Sol's Hocus Pocus",
                category: {
-                   name: "Irish Ale"
+                   name: "Irish Lager"
                },
                brewer: {
                    name: "Pixie Wonder",
@@ -91,6 +91,7 @@ beerApp.controller('BeerController',
            }
        ];
        $scope.beers.isVisible = true;
+       $scope.beers.sortOrder = "name";
 
        /// Controller Functions.
 
