@@ -2,8 +2,8 @@
 <html lang="en" ng-app="beerApp">
 <head>
     <title>Beer</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/app.css" />
 </head>
 <body>
     <div class="container">
@@ -26,13 +26,33 @@
                     <div><strong>Description:</strong>{{beer.description}}</div>
                 </div>
                 <div class="span4">
+                    <address>
                     <h3>Brewer Details</h3>
-                    <strong>Address:</strong><br/>
-                    {{beer.brewer.address.addressline1}}<br/>
-                    {{beer.brewer.address.state}}, {{beer.brewer.address.postcode}}<br/>
-                    <!-- TODO: Create edit page-->
+                        <strong>Address:</strong><br/>
+                        {{beer.brewer.address.addressline1}}<br/>
+                        {{beer.brewer.address.state}}, {{beer.brewer.address.postcode}}<br/>
+                    </address>
                 </div>
             </div>
+
+            <hr/>
+
+            <h3>Beers</h3>
+            <ul class="thumbnails">
+                <li ng-repeat="beer in beers">
+                    <div class="row beer">
+                        <div class="well span9">
+                            <h4 class="well-title">{{beer.name}}</h4>
+                            <h6 style="margin-top:-10px">{{beer.category.name}}</h6>
+                            <span>Brewer: {{beer.brewer.name}}</span>
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+
+
         </div>
     </div>
 
