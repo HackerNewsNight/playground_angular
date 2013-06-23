@@ -1,16 +1,23 @@
 'use strict';
 
 beerApp.filter('abv', function () {
-    return function(abv) {
-        switch(true) {
+    return function (abv) {
+        var feedback;
+        switch (true) {
             case abv <= 4:
-                return "Light Beer ";
-            case abv > 4 && abv <=8:
-                return "Watch your limits!";
+                feedback = "Light Beer ";
+                break;
+            case abv > 4 && abv <= 8:
+                feedback = "Watch your limits!";
+                break;
             case abv > 8 && abv <= 11:
-                return "You should consider quiting";
+                feedback = "You should consider quiting";
+                break;
             case abv > 11:
-                return "Your going to die!"
-        };
+                feedback = "Your going to die!";
+                break;
+        }
+
+        return abv + " [" + feedback + "]"
     };
 });

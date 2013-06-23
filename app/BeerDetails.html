@@ -2,103 +2,108 @@
 <html lang="en" ng-app="beerApp">
 <head>
     <title>Beer</title>
-    <link rel="stylesheet" href="./css/bootstrap.css" />
-    <link rel="stylesheet" href="./css/app.css" />
+    <link rel="stylesheet" href="./css/bootstrap.css"/>
+    <link rel="stylesheet" href="./css/app.css"/>
 </head>
 <body ng-cloak>
-    <div class="container">
-        <div class="navbar">
-            <div class="navbar-inner">
-                <ul class="nav">
+<div class="container">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <ul class="nav">
 
-                </ul>
-            </div>
-        </div>
-        <div ng-controller="BeerController">
-            <div class="row">
-                <div class="span12">
-                    <h2>{{beer.name | uppercase}}</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="span3">
-                    <div><strong>Category:</strong>{{beer.category.name}}</div>
-                    <div><strong>Description:</strong>{{beer.description}}</div>
-                    <div><strong>Alcohol Percentage:</strong>{{beer.alcoholPercentage | abv}}</div>
-                </div>
-                <div class="span4">
-                    <address>
-                    <h3>Brewer Details</h3>
-                        <strong>Address:</strong><br/>
-                        {{beer.brewer.address.addressline1}}<br/>
-                        {{beer.brewer.address.state}}, {{beer.brewer.address.postcode}}<br/>
-                    </address>
-                </div>
-                <div class="span2 pull-right">
-                    <div class="carousel">
-                        <ul>
-                            <li ng-repeat="img in beer.images">
-                                <img ng-src="{{img}}" alt="beer.name">
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <button class="btn-primary" ng-show="beer.editMode" ng-click="toggleMode(beer)" ng-disabled="beer.isReadonly">Save</button>
-                <button class="btn-primary" ng-hide="beer.editMode" ng-click="toggleMode(beer)" ng-disabled="beer.isReadonly">Edit</button>
-                <button class="btn-danger">Delete</button>
-            </div>
-            <hr/>
-            <button class="btn-primary" ng-click="toggle(beers)">Toggle...</button>
-            <div ng-show="beers.isVisible">
-
-                <h3>Beers</h3>
-                <input type="text" ng-model="beers.search">
-
-                <span>Order</span>
-                <select ng-model="beers.sortOrder" class="input-small">
-                    <option selected value="name">Name</option>
-                    <option value="-upVoteCount">Votes</option>
-                </select>
-
-                <span>Type:</span>
-                <select ng-model="beers.type.category" class="input-small">
-                    <option selected value="lager">Lager</option>
-                    <option value="ale">Ale</option>
-                </select>
-                <ul class="thumbnails">
-                    <li ng-repeat="beer in beers | orderBy:beers.sortOrder | filter:beers.search | filter:beers.type">
-                        <div class="row beer">
-                            <div class="span0 well votingWidget">
-                                <div class="votingButton" ng-click="upVoteBeer(beer)">
-                                    <i class="icon-chevron-up"></i>
-                                </div>
-                                <div class="badge">
-                                    <div>{{beer.upVoteCount}}</div>
-                                </div>
-                                <div class="votingButton" ng-disabled="downVoteDisabled(beer)" ng-click="downVoteBeer(beer)">
-                                    <i class="icon-chevron-down"></i>
-                                </div>
-                            </div>
-                            <div class="well span9" ng-click="displayBeer(beer)">
-                                <h4 class="well-title">{{beer.name}}</h4>
-                                <h6 style="margin-top:-10px">{{beer.category.name}}</h6>
-                                <span>Brewer: {{beer.brewer.name}}</span>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            </ul>
         </div>
     </div>
+    <div ng-controller="BeerController">
+        <div class="row">
+            <div class="span12">
+                <h2>{{beer.name | uppercase}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span3">
+                <div><strong>Category:</strong>{{beer.category.name}}</div>
+                <div><strong>Description:</strong>{{beer.description}}</div>
+                <div><strong>Alcohol Percentage:</strong>{{beer.alcoholPercentage | abv}}</div>
+            </div>
+            <div class="span4">
+                <address>
+                    <h3>Brewer Details</h3>
+                    <strong>Address:</strong><br/>
+                    {{beer.brewer.address.addressline1}}<br/>
+                    {{beer.brewer.address.state}}, {{beer.brewer.address.postcode}}<br/>
+                </address>
+            </div>
+            <div class="span2 pull-right">
+                <div class="carousel">
+                    <ul>
+                        <li ng-repeat="img in beer.images">
+                            <img ng-src="{{img}}" alt="beer.name">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <button class="btn-primary" ng-show="beer.editMode" ng-click="toggleMode(beer)"
+                    ng-disabled="beer.isReadonly">Save
+            </button>
+            <button class="btn-primary" ng-hide="beer.editMode" ng-click="toggleMode(beer)"
+                    ng-disabled="beer.isReadonly">Edit
+            </button>
+            <button class="btn-danger">Delete</button>
+        </div>
+        <hr/>
+        <button class="btn-primary" ng-click="toggle(beers)">Toggle...</button>
+        <div ng-show="beers.isVisible">
 
-    <script src="./lib/jquery/jquery-1.10.1.min.js"></script>
-    <script src="./lib/underscore/underscore-min.js"></script>
-    <script src="./lib/angular/angular.js"></script>
-    <script src="./lib/angular/angular-sanitize.js"></script>
-    <script src="./lib/bootstrap/bootstrap.min.js"></script>
-    <script src="./js/app.js"></script>
-    <script src="./js/controllers/BeerController.js"></script>
-    <script src="./js/filters.js"></script>
+            <h3>Beers</h3>
+            <input type="text" ng-model="beers.search">
+
+            <span>Order</span>
+            <select ng-model="beers.sortOrder" class="input-small">
+                <option selected value="name">Name</option>
+                <option value="-upVoteCount">Votes</option>
+            </select>
+
+            <span>Type:</span>
+            <select ng-model="beers.type.category" class="input-small">
+                <option selected value="lager">Lager</option>
+                <option value="ale">Ale</option>
+            </select>
+            <ul class="thumbnails">
+                <li ng-repeat="beer in beers | orderBy:beers.sortOrder | filter:beers.search | filter:beers.type">
+                    <div class="row beer">
+                        <div class="span0 well votingWidget">
+                            <div class="votingButton" ng-click="upVoteBeer(beer)">
+                                <i class="icon-chevron-up"></i>
+                            </div>
+                            <div class="badge">
+                                <div>{{beer.upVoteCount}}</div>
+                            </div>
+                            <div class="votingButton" ng-disabled="downVoteDisabled(beer)"
+                                 ng-click="downVoteBeer(beer)">
+                                <i class="icon-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="well span9" ng-click="displayBeer(beer)">
+                            <h4 class="well-title">{{beer.name}}</h4>
+                            <h6 style="margin-top:-10px">{{beer.category.name}}</h6>
+                            <span>Brewer: {{beer.brewer.name}}</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="./lib/jquery/jquery-1.10.1.min.js"></script>
+<script src="./lib/underscore/underscore-min.js"></script>
+<script src="./lib/angular/angular.js"></script>
+<script src="./lib/angular/angular-sanitize.js"></script>
+<script src="./lib/bootstrap/bootstrap.min.js"></script>
+<script src="./js/app.js"></script>
+<script src="./js/controllers/BeerController.js"></script>
+<script src="./js/filters.js"></script>
 
 </body>
 </html>
