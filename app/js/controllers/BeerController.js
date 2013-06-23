@@ -4,6 +4,8 @@ beerApp.controller('BeerController',
    function BeerController($scope) {
 
        // Sample Beer
+       $scope.snippet = "<span class='error'>Below is a list of beers.</span>"
+
        $scope.beer = {
            id: 1,
            name: "Lorum Ipsum",
@@ -87,6 +89,13 @@ beerApp.controller('BeerController',
                images: [ "./img/beers/coopers.jpg" ]
            }
        ];
+       $scope.beers.isVisible = true;
+
+       /// Local Functions.
+       $scope.toggle = function(obj){
+          obj.isVisible = !obj.isVisible;
+       };
+
        $scope.upVoteBeer = function(beer) {
            beer.upVoteCount++;
        };
