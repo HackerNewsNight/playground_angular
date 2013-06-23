@@ -1,3 +1,3 @@
 'use strict';
 
-var beerApp = angular.module('beerApp', []);
+var beerApp = angular.module('beerApp', ['ngSanitize']);
