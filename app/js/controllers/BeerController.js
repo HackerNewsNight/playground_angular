@@ -23,6 +23,9 @@ beerApp.controller('BeerController',
            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed ligula vitae erat viverra molestie. Sed accumsan, est ac ullamcorper sodales, lorem eros aliquet risus,",
            images: [ "./img/beers/lipsum.gif"]
        };
+       $scope.beer.isReadonly = false; /* todo: create access based on this information */
+       $scope.beer.editMode = false; /* todo: create input page based on this being in edit mode */
+
 
        // Sample Beers List...
        $scope.beers = [
@@ -90,8 +93,17 @@ beerApp.controller('BeerController',
        $scope.beers.isVisible = true;
 
        /// Controller Functions.
+
+       $scope.toggleMode = function(obj) {
+           obj.editMode = !obj.editMode;
+       };
+
        $scope.toggle = function(obj){
           obj.isVisible = !obj.isVisible;
+       };
+
+       $scope.downVoteDisabled = function(beer) {
+           return beer.upVoteCount <= 0;
        };
 
        $scope.upVoteBeer = function(beer) {

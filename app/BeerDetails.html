@@ -42,6 +42,9 @@
                         </ul>
                     </div>
                 </div>
+                <button class="btn-primary" ng-show="beer.editMode" ng-click="toggleMode(beer)" ng-disabled="beer.isReadonly">Save</button>
+                <button class="btn-primary" ng-hide="beer.editMode" ng-click="toggleMode(beer)" ng-disabled="beer.isReadonly">Edit</button>
+                <button class="btn-danger">Delete</button>
             </div>
             <hr/>
             <button class="btn-primary" ng-click="toggle(beers)">Toggle...</button>
@@ -57,7 +60,7 @@
                                 <div class="badge">
                                     <div>{{beer.upVoteCount}}</div>
                                 </div>
-                                <div class="votingButton" ng-click="downVoteBeer(beer)">
+                                <div class="votingButton" ng-disabled="downVoteDisabled(beer)" ng-click="downVoteBeer(beer)">
                                     <i class="icon-chevron-down"></i>
                                 </div>
                             </div>
