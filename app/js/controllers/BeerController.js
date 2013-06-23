@@ -3,9 +3,7 @@
 beerApp.controller('BeerController',
    function BeerController($scope) {
 
-       // Sample Beer
-       $scope.snippet = "<span class='error'>Below is a list of beers.</span>"
-
+       // Beer Details
        $scope.beer = {
            id: 1,
            name: "Lorum Ipsum",
@@ -91,7 +89,7 @@ beerApp.controller('BeerController',
        ];
        $scope.beers.isVisible = true;
 
-       /// Local Functions.
+       /// Controller Functions.
        $scope.toggle = function(obj){
           obj.isVisible = !obj.isVisible;
        };
