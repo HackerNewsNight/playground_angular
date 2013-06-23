@@ -6,28 +6,29 @@ beerApp.controller('BeerController',
        // Sample Beer
        $scope.beer = {
            id: 1,
-           name: "Hocus Pocus",
+           name: "Lorum Ipsum",
            category: {
-               name: "Irish Ale"
+               name: "Duis sed ligula "
            },
            brewer: {
-               name: "Pixie Wonder",
+               name: "Etiam luctus",
                address: {
-                   addressline1: "1 Sussex St",
+                   addressline1: "1 eleifend St",
                    addressline2: "",
-                   state: "NSW",
-                   postcode: 2000,
-                   country: "Australia"
+                   state: "ullamcorper",
+                   postcode: 9999,
+                   country: "Mauris"
                }
            },
-           description: "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days. Its malty sweetness ..."
+           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed ligula vitae erat viverra molestie. Sed accumsan, est ac ullamcorper sodales, lorem eros aliquet risus,",
+           images: [ "./img/beers/lipsum.gif"]
        };
 
        // Sample Beers List...
        $scope.beers = [
            {
                id: 2,
-               name: "Hocus Pocus",
+               name: "Sol's Hocus Pocus",
                category: {
                    name: "Irish Ale"
                },
@@ -42,13 +43,14 @@ beerApp.controller('BeerController',
                    }
                },
                description: "Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days. Its malty sweetness ...",
-               upVoteCount: 0
+               upVoteCount: 0,
+               images: [ "./img/beers/sol.jpg" ]
            },
            {
                id: 3,
                name: "Fat Yak",
                category: {
-                   name: "Irish Ale"
+                   name: "Oil Ale"
                },
                brewer: {
                    name: "Big Al's Lab",
@@ -61,7 +63,8 @@ beerApp.controller('BeerController',
                    }
                },
                description: "Is it dark in here. ",
-               upVoteCount: 0
+               upVoteCount: 0,
+               images: [ "./img/beers/fat_yak.jpg" ]
            },
            {
                id: 1,
@@ -80,15 +83,19 @@ beerApp.controller('BeerController',
                    }
                },
                description: "Cloudy...",
-               upVoteCount: 0
+               upVoteCount: 0,
+               images: [ "./img/beers/coopers.jpg" ]
            }
        ];
        $scope.upVoteBeer = function(beer) {
-            beer.upVoteCount++;
-       }
+           beer.upVoteCount++;
+       };
        $scope.downVoteBeer = function(beer) {
            beer.upVoteCount--;
-       }
+       };
 
+       $scope.displayBeer = function(beer) {
+           $scope.beer = beer;
+       }
    }
 );

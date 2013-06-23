@@ -33,6 +33,15 @@
                         {{beer.brewer.address.state}}, {{beer.brewer.address.postcode}}<br/>
                     </address>
                 </div>
+                <div class="span2 pull-right">
+                    <div class="carousel">
+                        <ul>
+                            <li ng-repeat="img in beer.images">
+                                <img ng-src="{{img}}" alt="beer.name">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <hr/>
@@ -51,7 +60,7 @@
                                 <i class="icon-chevron-down"></i>
                             </div>
                         </div>
-                        <div class="well span9">
+                        <div class="well span9" ng-click="displayBeer(beer)">
                             <h4 class="well-title">{{beer.name}}</h4>
                             <h6 style="margin-top:-10px">{{beer.category.name}}</h6>
                             <span>Brewer: {{beer.brewer.name}}</span>
