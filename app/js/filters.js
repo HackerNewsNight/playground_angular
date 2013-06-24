@@ -1,5 +1,6 @@
 'use strict';
 
+/* BEER APP Filters */
 beerApp.filter('abv', function () {
     return function (abv) {
         var feedback;
