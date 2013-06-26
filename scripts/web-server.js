@@ -4,9 +4,10 @@ var sys = require('sys'),
     http = require('http'),
     fs = require('fs'),
     url = require('url'),
-    events = require('events');
+    events = require('events'),
+    passport = require('passport');
 
-var DEFAULT_PORT = 8000;
+var DEFAULT_PORT = 80;
 
 function main(argv) {
   new HttpServer({
