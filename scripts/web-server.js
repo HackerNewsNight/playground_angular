@@ -7,7 +7,7 @@ var sys = require('sys'),
     events = require('events'),
     passport = require('passport');
 
-var DEFAULT_PORT = 80;
+var DEFAULT_PORT = 8080;
 
 function main(argv) {
   new HttpServer({
